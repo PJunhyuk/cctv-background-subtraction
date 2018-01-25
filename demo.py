@@ -52,7 +52,8 @@ for a in range(0, video.size[1]):
     for b in range(0, video.size[0]):
         pixel_list = []
         print(str(b) + ', ' + str(a))
-        for i in range(0, video_frame_number):
+        video_step = int(video_frame_number / video.fps)
+        for i in range(0, video_frame_number, video_step):
             # Save i-th frame as image
             image = video.get_frame(i/video.fps)
             pixel = (image[a][b][0], image[a][b][1], image[a][b][2])
