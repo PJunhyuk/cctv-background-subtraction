@@ -66,9 +66,5 @@ print(type(video_bg))
 
 video_bg_image = Image.fromarray(np.uint8(video_bg))
 
-print(video_bg_image)
-print(len(video_bg_image))
-print(type(video_bg_image))
-
 video_bg_image.save('video_bg.jpg')
 print("Time(s): " + str(time.time() - time_start))
