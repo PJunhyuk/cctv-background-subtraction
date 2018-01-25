@@ -21,6 +21,7 @@ from PIL import Image
 ## ArgParse
 parser = ap.ArgumentParser()
 parser.add_argument('-f', '--videoFileName', help='Name of Video File')
+parser.add_argument('-w', '--videoWidth', help='Width of Video')
 args = vars(parser.parse_args())
 
 if args['videoFileName'] is not None:
@@ -30,13 +31,18 @@ else:
     print('You have to input videoFileName')
     sys.exit(1)
 
+if args['videoWidth'] is not None:
+    video_width = args['videoWidth']
+    print('videoWidth: ' + video_width)
+    video = video.resize(width = int(video_width))
+else:
+    print('Maintain videoWidth')
+
 ## Read video
 video_file_route = 'testset/' + video_file_name
 print('video_file_route: ' + video_file_route)
 video = VideoFileClip(video_file_route)
 print('Read Complete')
-
-video = video.resize(width = 16)
 
 video_frame_number = int(video.duration * video.fps) ## duration: second / fps: frame per second
 video_bg = []
