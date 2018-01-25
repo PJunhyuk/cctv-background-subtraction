@@ -71,6 +71,7 @@ video_bg_image.save('video_bg.jpg')
 
 for i in range(0, video_frame_number):
     image = video.get_frame(i/video.fps)
+    image = np.asarray(image)
     image_new = image
     for a in range(0, video.size[1]):
         for b in range(0, video.size[0]):
@@ -78,7 +79,6 @@ for i in range(0, video_frame_number):
                 image_new[a][b][0] = 0
                 image_new[a][b][1] = 0
                 image_new[a][b][2] = 0
-    image_new_numpy = np.asarray(image_new)
     image_new_list.append(image_new_numpy)
 
 video_rmbg = ImageSequenceClip(image_new_list, fps=video.fps)
