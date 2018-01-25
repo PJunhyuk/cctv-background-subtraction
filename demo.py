@@ -59,7 +59,7 @@ for a in range(0, video.size[1]):
     print(str(a+1) + "_Time(s): " + str(time.time() - time_start))
 
 print(video_bg)
-print(size(video_bg))
+print(len(video_bg))
 video_bg.save('video_bg.jpg')
 # video_bg_image = Image.fromarray(video_bg)
 # video_bg_image.save('video_bg.jpg')
