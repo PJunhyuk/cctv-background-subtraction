@@ -81,7 +81,7 @@ for i in range(0, video_frame_number):
                 image_new[a][b][0] = 0
                 image_new[a][b][1] = 0
                 image_new[a][b][2] = 0
-    image_new_list.append(image_new_numpy)
+    image_new_list.append(image_new)
 
 video_rmbg = ImageSequenceClip(image_new_list, fps=video.fps)
 video_rmbg.write_videofile("testset/" + video_output_name + "_bgrm.mov", fps=video.fps, progress_bar=False)
