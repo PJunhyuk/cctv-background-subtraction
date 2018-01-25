@@ -39,11 +39,11 @@ print('Read Complete')
 video = video.resize(width = 16)
 
 video_frame_number = int(video.duration * video.fps) ## duration: second / fps: frame per second
-video_bg_row = []
 video_bg = []
 
 for a in range(0, video.size[0]):
     for b in range(0, video.size[1]):
+        video_bg_row = []
         pixel_list = []
         print(str(a) + ', ' + str(b))
         for i in range(0, video_frame_number):
