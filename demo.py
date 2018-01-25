@@ -30,6 +30,7 @@ if args['videoFileName'] is not None:
 else:
     print('You have to input videoFileName')
     sys.exit(1)
+video_output_name = video_file_name.split('.')[0]
 
 ## Read video
 video_file_route = 'testset/' + video_file_name
@@ -64,16 +65,22 @@ for a in range(0, video.size[1]):
     video_bg.append(video_bg_row)
     print(str(a+1) + "_Time(s): " + str(time.time() - time_start))
 
-print(video_bg)
-print(len(video_bg))
-print(len(video_bg[0]))
-print(len(video_bg[0][0]))
-print(type(video_bg))
-
 video_bg_image = Image.fromarray(np.uint8(video_bg))
 video_bg_image.save('video_bg.jpg')
 
 for i in range(0, video_frame_number):
+    image = video.get_frame(i/video.fps)
+    image_new = image
+    for a in range(0, video.size[1]):
+        for b in range(0, video.size[0]):
+            if (image[a][b][0], image[a][b][1], image[a][b][2]) == (video_bg_image[a][b][0], video_bg_image[a][b][1], video_bg_image[a][b][2]):
+                image_new[a][b][0] = 0
+                image_new[a][b][1] = 0
+                image_new[a][b][2] = 0
+    image_new_numpy = np.asarray(image_new)
+    image_new_list.append(image_new_numpy)
 
+video_rmbg = ImageSequenceClip(image_new_list, fps=video.fps)
+video_rmbg.write_videofile("testset/" + video_output_name + "_bgrm.mov", fps=video.fps, progress_bar=False)
 
 print("Time(s): " + str(time.time() - time_start))
