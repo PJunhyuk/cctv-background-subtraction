@@ -49,7 +49,7 @@ for a in range(0, video.size[0]):
         for i in range(0, video_frame_number):
             # Save i-th frame as image
             image = video.get_frame(i/video.fps)
-            pixel = (image[a][b][0], image[a][b][1], image[a][b][2])
+            pixel = (image[b][a][0], image[b][a][1], image[b][a][2])
             pixel_list.append(pixel)
         pixel_list_counter = collections.Counter(pixel_list)
         pixel_list_mode = pixel_list_counter.most_common(1)[0][0]
