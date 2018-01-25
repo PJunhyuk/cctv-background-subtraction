@@ -36,17 +36,16 @@ print('video_file_route: ' + video_file_route)
 video = VideoFileClip(video_file_route)
 print('Read Complete')
 
-video = video.resize(width = 32)
+video = video.resize(width = 16)
 
 video_frame_number = int(video.duration * video.fps) ## duration: second / fps: frame per second
 video_bg_row = []
 video_bg = []
 
-for a in range(0, video.size[1]):
-    for b in range(0, video.size[0]):
+for a in range(0, video.size[0]):
+    for b in range(0, video.size[1]):
         pixel_list = []
-        print(a)
-        print(b)
+        print(str(a) + ', ' + str(b))
         for i in range(0, video_frame_number):
             # Save i-th frame as image
             image = video.get_frame(i/video.fps)
