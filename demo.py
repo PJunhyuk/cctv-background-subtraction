@@ -57,6 +57,10 @@ for a in range(0, video.size[1]):
         video_bg_row.append(pixel_list_mode)
     video_bg.append(video_bg_row)
     print(str(a+1) + "_Time(s): " + str(time.time() - time_start))
-video_bg_image = Image.fromarray(video_bg)
-video_bg_image.save('video_bg.jpg')
+
+print(video_bg)
+print(size(video_bg))
+video_bg.save('video_bg.jpg')
+# video_bg_image = Image.fromarray(video_bg)
+# video_bg_image.save('video_bg.jpg')
 print("Time(s): " + str(time.time() - time_start))
