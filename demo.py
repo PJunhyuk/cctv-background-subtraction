@@ -31,18 +31,18 @@ else:
     print('You have to input videoFileName')
     sys.exit(1)
 
+## Read video
+video_file_route = 'testset/' + video_file_name
+print('video_file_route: ' + video_file_route)
+video = VideoFileClip(video_file_route)
+print('Read Complete')
+
 if args['videoWidth'] is not None:
     video_width = args['videoWidth']
     print('videoWidth: ' + video_width)
     video = video.resize(width = int(video_width))
 else:
     print('Maintain videoWidth')
-
-## Read video
-video_file_route = 'testset/' + video_file_name
-print('video_file_route: ' + video_file_route)
-video = VideoFileClip(video_file_route)
-print('Read Complete')
 
 video_frame_number = int(video.duration * video.fps) ## duration: second / fps: frame per second
 video_bg = []
