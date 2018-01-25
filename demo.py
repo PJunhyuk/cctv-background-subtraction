@@ -47,13 +47,14 @@ else:
 
 video_frame_number = int(video.duration * video.fps) ## duration: second / fps: frame per second
 video_bg = []
+skip_const = 4
 
 for a in range(0, video.size[1]):
     video_bg_row = []
     for b in range(0, video.size[0]):
         pixel_list = []
         print(str(b) + ', ' + str(a))
-        video_step = int(video_frame_number / video.fps / 4)
+        video_step = int(video_frame_number / video.fps) * skip_const
         for i in range(0, video_frame_number, video_step):
             # Save i-th frame as image
             image = video.get_frame(i/video.fps)
