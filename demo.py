@@ -75,7 +75,7 @@ for i in range(0, video_frame_number):
     image_new = image
     for a in range(0, video.size[1]):
         for b in range(0, video.size[0]):
-            if (image[a][b][0], image[a][b][1], image[a][b][2]) == (video_bg_image[a][b][0], video_bg_image[a][b][1], video_bg_image[a][b][2]):
+            if (image[a][b][0], image[a][b][1], image[a][b][2]) == (video_bg[a][b][0], video_bg[a][b][1], video_bg[a][b][2]):
                 image_new[a][b][0] = 0
                 image_new[a][b][1] = 0
                 image_new[a][b][2] = 0
