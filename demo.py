@@ -42,8 +42,8 @@ video_frame_number = int(video.duration * video.fps) ## duration: second / fps: 
 video_bg = []
 
 for a in range(0, video.size[0]):
+    video_bg_row = []
     for b in range(0, video.size[1]):
-        video_bg_row = []
         pixel_list = []
         print(str(a) + ', ' + str(b))
         for i in range(0, video_frame_number):
