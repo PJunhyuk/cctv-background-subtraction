@@ -84,6 +84,6 @@ for i in range(0, video_frame_number):
     image_new_list.append(image_new)
 
 video_rmbg = ImageSequenceClip(image_new_list, fps=video.fps)
-video_rmbg.write_videofile("testset/" + video_output_name + "_bgrm.mov", fps=video.fps, progress_bar=False)
+video_rmbg.write_videofile("testset/" + video_output_name + "_bgrm.mp4", fps=video.fps, progress_bar=False)
 
 print("Time(s): " + str(time.time() - time_start))
