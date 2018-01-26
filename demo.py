@@ -47,7 +47,7 @@ else:
 
 video_frame_number = int(video.duration * video.fps) ## duration: second / fps: frame per second
 video_bg = []
-skip_const = 4
+skip_const = 1
 
 for a in range(0, video.size[1]):
     video_bg_row = []
@@ -67,7 +67,7 @@ for a in range(0, video.size[1]):
     print(str(a+1) + "_Time(s): " + str(time.time() - time_start))
 
 video_bg_image = Image.fromarray(np.uint8(video_bg))
-video_bg_image.save('video_bg.jpg')
+video_bg_image.save('testset/video_bg.jpg')
 
 image_new_list = []
 
