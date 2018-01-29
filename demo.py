@@ -23,6 +23,7 @@ parser = ap.ArgumentParser()
 parser.add_argument('-f', '--videoFileName', help='Name of Video File')
 parser.add_argument('-w', '--videoWidth', help='Width of Video')
 parser.add_argument('-b', '--videoBackground', help='Background Image of Video')
+parser.add_argument('-t', '--pixelDiffThres', help='Threshold of difference between pixel')
 args = vars(parser.parse_args())
 
 if args['videoFileName'] is not None:
@@ -45,6 +46,12 @@ if args['videoWidth'] is not None:
     video = video.resize(width = int(video_width))
 else:
     print('Maintain videoWidth')
+
+if args['pixelDiffThres'] is not None:
+    pixel_diff_thres = args['pixelDiffThres']
+    print('pixel_diff_thres: ' + pixel_diff_thres)
+else:
+    pixel_diff_thres = 10 ## For specific pixel, if difference of each R, G, B is less than pixel_diff_thres, we decide that is background
 
 video_frame_number = int(video.duration * video.fps) ## duration: second / fps: frame per second
 
@@ -76,7 +83,6 @@ else:
     video_bg_image.save('testset/' + video_output_name + '_bg.jpg')
 
 image_new_list = []
-pixel_diff_thres = 10 ## For specific pixel, if difference of each R, G, B is less than pixel_diff_thres, we decide that is background
 
 for i in range(0, video_frame_number):
     image = video.get_frame(i/video.fps)
