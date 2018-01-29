@@ -48,7 +48,7 @@ else:
     print('Maintain videoWidth')
 
 if args['pixelDiffThres'] is not None:
-    pixel_diff_thres = args['pixelDiffThres']
+    pixel_diff_thres = int(args['pixelDiffThres'])
     print('pixel_diff_thres: ' + pixel_diff_thres)
 else:
     pixel_diff_thres = 10 ## For specific pixel, if difference of each R, G, B is less than pixel_diff_thres, we decide that is background
