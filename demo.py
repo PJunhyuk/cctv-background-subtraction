@@ -50,6 +50,7 @@ video_frame_number = int(video.duration * video.fps) ## duration: second / fps: 
 
 if args['videoBackground'] is not None:
     video_bg_image = Image.open(args['videoBackground'])
+    video_bg = np.asarray(video_bg_image)
 else:
     print('No background image input!')
     print('Subtracting background from input video...')
