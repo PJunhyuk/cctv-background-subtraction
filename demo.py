@@ -76,7 +76,7 @@ else:
     video_bg_image.save('testset/' + video_output_name + '_bg.jpg')
 
 image_new_list = []
-pixel_diff_thres = 3 ## For specific pixel, if difference of each R, G, B is less than pixel_diff_thres, we decide that is background
+pixel_diff_thres = 6 ## For specific pixel, if difference of each R, G, B is less than pixel_diff_thres, we decide that is background
 
 for i in range(0, video_frame_number):
     image = video.get_frame(i/video.fps)
